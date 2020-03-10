@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="tickets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ticket" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ticketID" type="ticket" />
+              <xs:element name="dateIssued" type="xs:date" />
+              <xs:element name="subject" type="xs:string" />
+              <xs:element name="messages">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="message" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="username" type="uname" />
+                          <xs:element name="time" type="xs:time" />
+                          <xs:element name="date" type="xs:date" />
+                          <xs:element name="content" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="author" type="id" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="status" type="status" />
+            <xs:attribute name="author" type="id" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--custom types-->
+  <xs:simpleType name="status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ongoing" />
+      <xs:enumeration value="resolved" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="id">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{6}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ticket">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(t)[0-9]{6}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="uname">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Za-z ]{3,20}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

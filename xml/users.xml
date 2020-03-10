@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="users.xsd">
+  <user type="admin">
+    <id>031201</id>
+    <username>Admin</username>
+    <password>$2y$10$f8YI.bHTk.4nVfHmp0FEkO0Xg/zYNTwS5DxH4fog88dbHKjMRkPJW</password>
+    <email>admin@gmail.com</email>
+  </user>
+  <user type="client">
+    <id>000290</id>
+    <username>JohnDoe3</username>
+    <password>$2y$10$IxVuoiEHuNjIjEmlshKxSu3Kt6uITrv8vMpUyanXqF0wb0Ov7yr1S</password>
+    <email>johndoe3@gmail.com</email>
+  </user>
+</users>

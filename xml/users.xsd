@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="users">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="user" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" type="id" />
+              <xs:element name="username" type="uname" />
+              <xs:element name="password" type="pword" />
+              <xs:element name="email" type="email" />
+            </xs:sequence>
+            <xs:attribute name="type" type="userType" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="userType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="client" />
+      <xs:enumeration value="admin" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="id">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{6}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="uname">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Za-z ]{3,20}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pword">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Za-z!_.$/]{5,100}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="email">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Za-z_]{3,}\@[A-Za-z]{3,}\.(com|ca|org|net)" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

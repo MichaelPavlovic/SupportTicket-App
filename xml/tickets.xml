@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="tickets.xsd">
+  <ticket status="ongoing" author="000290">
+    <ticketID>t026010</ticketID>
+    <dateIssued>2019-08-07</dateIssued>
+    <subject>Refund</subject>
+    <messages>
+      <message author="000290">
+        <username>JohnDoe3</username>
+        <time>13:00:00</time>
+        <date>2019-08-07</date>
+        <content>Hello I accidentally purchased this item ... would it
+          be possible to get a refund. Thanks!</content>
+      </message>
+      <message author="031201">
+        <username>Admin</username>
+        <time>16:00:00</time>
+        <date>2019-08-07</date>
+        <content>If you send me the transaction ID I can 
+          get that item refunded for you.</content>
+      </message>
+    </messages>
+  </ticket>
+</tickets>
