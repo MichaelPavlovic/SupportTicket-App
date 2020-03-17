@@ -1,0 +1,53 @@
+.heading{
+    padding:1.2em 3em;
+}
+.ticket-info p{
+    margin:0;
+}
+.ticket-info{
+    margin-left:5.4em;
+    margin-bottom:1em;
+}
+/****** chat box ******/
+.chat{
+    width:500px;
+    height:400px;
+    border:1px solid #000;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:0.8em;
+    overflow-y:scroll;
+}
+.chat-form{
+    padding:0;
+    margin:0;
+    margin:0 auto;
+    width:500px;
+}
+.client{
+    width:200px;
+    align-self:flex-end;
+    padding-bottom:0.4em;
+}
+.notClient{
+    width:200px;
+    padding-bottom:0.4em;
+}
+.client p, .notClient p{
+    margin-bottom:0.2em;
+    padding-left:0.3em;
+}
+.msg-green{
+    color:white;
+    background-color:limegreen;
+    padding:0.3em 0.7em;
+    border-radius:10px;
+}
+.msg-blue{
+    color:white;
+    background-color:deepskyblue;
+    padding:0.3em 0.7em;
+    border-radius:10px;
+}

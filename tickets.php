@@ -15,6 +15,7 @@ $xmlTickets = simplexml_load_file("xml/tickets.xml");
     <head>
         <meta charset="utf-8">
         <title>Support Ticket System</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
@@ -41,7 +42,7 @@ $xmlTickets = simplexml_load_file("xml/tickets.xml");
             if($userType == 'admin'){
         ?>
         <main class="main">
-            <h1>Tickets</h1>
+            <h1 class="h3 heading">Tickets</h1>
             <div class="table-responsive container">
                 <table class="table table-bordered table-hover">
                     <thead class="thead-dark">
@@ -58,7 +59,12 @@ $xmlTickets = simplexml_load_file("xml/tickets.xml");
                             <td><?= $t->ticketID; ?></td>
                             <td><?= $t->dateIssued; ?></td>
                             <td><?= $t['status']; ?></td>
-                            <td><a href="details.php">View</a> </td>
+                            <td>
+                                <form method="post" action="details.php">
+                                    <input type="hidden" name="id" value="<?= $t->ticketID; ?>">
+                                    <input type="submit" value="View" class="btn btn-outline-primary">
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                     </tbody>

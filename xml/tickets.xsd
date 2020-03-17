@@ -7,7 +7,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ticketID" type="ticket" />
-              <xs:element name="dateIssued" type="xs:date" />
+              <xs:element name="dateIssued" type="xs:string" />
               <xs:element name="subject" type="xs:string" />
               <xs:element name="messages">
                 <xs:complexType>
@@ -16,8 +16,7 @@
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="username" type="uname" />
-                          <xs:element name="time" type="xs:time" />
-                          <xs:element name="date" type="xs:date" />
+                          <xs:element name="time" type="xs:string" />
                           <xs:element name="content" type="xs:string" />
                         </xs:sequence>
                         <xs:attribute name="author" type="id" />
@@ -37,8 +36,8 @@
   <!--custom types-->
   <xs:simpleType name="status">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="ongoing" />
-      <xs:enumeration value="resolved" />
+      <xs:enumeration value="Open" />
+      <xs:enumeration value="Closed" />
     </xs:restriction>
   </xs:simpleType>
 
