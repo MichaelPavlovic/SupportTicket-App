@@ -13,4 +13,10 @@
     <password>$2y$10$IxVuoiEHuNjIjEmlshKxSu3Kt6uITrv8vMpUyanXqF0wb0Ov7yr1S</password>
     <email>johndoe3@gmail.com</email>
   </user>
+  <user type="client">
+    <id>001110</id>
+    <username>Michael</username>
+    <password>$2y$10$9ZGf6nQ37xYNpYSpWCGXvOGqGll43E4ZOfyNGJmbBut2MxBBXXyvq</password>
+    <email>michael@gmail.com</email>
+  </user>
 </users>

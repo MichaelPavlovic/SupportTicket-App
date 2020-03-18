@@ -25,6 +25,7 @@ $userID = '';
 foreach($xmlUsers->user as $u){
     if($u->username == $_SESSION['loggedIn']){
         $userID = $u->id;
+        $userType = $u['type'];
     }
 }
 ?>
@@ -35,8 +36,32 @@ foreach($xmlUsers->user as $u){
         <title>Support Ticket System</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
-
+            $(document).ready(function() {
+                $('#chatForm').submit(function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: 'addMessage.php',
+                        type: 'POST',
+                        data: $('#chatForm').serialize(),
+                        success: function() {
+                            window.location.reload();
+                        }
+                    });
+                });
+                $('#statusForm').submit(function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: 'updateStatus.php',
+                        type: 'POST',
+                        data: $('#statusForm').serialize(),
+                        success: function() {
+                            window.location.reload();
+                        }
+                    });
+                });
+            });
         </script>
     </head>
     <body>
@@ -57,20 +82,23 @@ foreach($xmlUsers->user as $u){
             <p>Ticket ID: <?= $id; ?></p>
             <p>Date Issued: <?= $date; ?></p>
             <p>Status: <?= $status; ?></p>
-            <form action="updateStatus.php" method="post">
-                <input type="hidden" name="ticketID" value="<?= $id; ?>">
-                <input type="hidden" name="status" value="<?php if($status=='Open'){ echo 'Closed'; } else{ echo 'Open'; } ?>">
-                <?php
+            <?php
+                if($userType == 'admin'){
+            ?>
+                <form id="statusForm">
+                    <input type="hidden" name="ticketID" value="<?= $id; ?>">
+                    <input type="hidden" name="status" value="<?php if($status=='Open'){ echo 'Closed'; } else{ echo 'Open'; } ?>">
+                    <?php
                     if($status == 'Open'){
                         echo '<input type="submit" value="Close Ticket" class="btn btn-outline-danger">';
                     }else{
                         echo '<input type="submit" value="Open Ticket" class="btn btn-outline-primary">';
                     }
-                ?>
-
-            </form>
+                    ?>
+                </form>
+            <?php } ?>
         </div>
-        <div class="chat">
+        <div id="chat" class="chat">
             <?php
                 foreach($messages->message as $m){
                     if($m['author'] == (string) $userID) {
@@ -82,15 +110,12 @@ foreach($xmlUsers->user as $u){
             ?>
         </div>
         <div class="chat-form">
-            <form action="addMessage.php" method="post" id="chatForm" autocomplete="off">
+            <form id="chatForm" autocomplete="off">
                 <input type="hidden" id="userID" name="userID" value="<?= $userID; ?>">
-                <input type="hidden" id="ticketID" name="ticketID" value="<?= $id ?>">
+                <input type="hidden" id="id" name="id" value="<?= $id ?>">
                 <input type="text" id="message" name="message" placeholder="Enter a message..." class="form-control" <?php if($status == 'Closed'){ echo 'disabled'; } ?>>
                 <input type="submit" id="send" name="send" value="Send" class="btn btn-success btn-block" <?php if($status == 'Closed'){ echo 'disabled'; } ?>>
             </form>
         </div>
-        <footer id="footer">
-
-        </footer>
     </body>
 </html>

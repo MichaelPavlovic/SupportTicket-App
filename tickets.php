@@ -106,8 +106,5 @@ $xmlTickets = simplexml_load_file("xml/tickets.xml");
             </div>
         </main>
         <?php } ?>
-        <footer id="footer">
-
-        </footer>
     </body>
 </html>

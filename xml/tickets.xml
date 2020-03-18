@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="tickets.xsd">
-  <ticket status="Closed" author="000290">
+  <ticket status="Open" author="000290">
     <ticketID>t026010</ticketID>
     <dateIssued>Mar 17, 2020</dateIssued>
     <subject>Refund</subject>
@@ -15,6 +15,18 @@
         <time>10:40PM - Mar 16</time>
         <content>Hi, what can I help you with?</content>
       </message>
-    <message author="031201"><username>Admin</username><time>10:50PM - Mar 16</time><content>hello?</content></message></messages>
+    <message author="031201"><username>Admin</username><time>09:54PM - Mar 17</time><content>test</content></message></messages>
+  </ticket>
+  <ticket status="Open" author="001110">
+    <ticketID>t012010</ticketID>
+    <dateIssued>Mar 10, 2020</dateIssued>
+    <subject>Password</subject>
+    <messages>
+      <message author="001110">
+        <username>Michael</username>
+        <time>1:00PM - Mar 10</time>
+        <content>Hey can you help me with something?</content>
+      </message>
+    </messages>
   </ticket>
 </tickets>

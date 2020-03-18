@@ -34,8 +34,8 @@ if(isset($_POST['login'])){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <!-- Used this for help with form styling: https://www.codeply.com/go/nhbdi2FkJm/bootstrap-4-login-form -->
-    <body class="text-center">
-        <div class="box">
+    <body class="text-center bg">
+        <div class="box login">
             <div class="col-lg-4 mx-auto">
                 <div class="card rounded shadow">
                     <div class="card-header">
